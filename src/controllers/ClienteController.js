@@ -1,6 +1,19 @@
-const database = require("./models");
+const database = require("../models");
 
 class ClienteController {
+
+  static async listarTodasEmpresasCadastradas(req, res, next) {
+    const empresasCadastradas = await database.T_LGC_CLIENTE.findAll()
+    try {
+      if(empresasCadastradas.length !== 0) {
+        res.status(200).send(empresasCadastradas)
+      }
+      next("Nenhuma empresa cadastrada", 404);
+    } catch (err) {
+      next(err);
+    }
+  }
+
   static async criarNovaEmpresa(req, res, next) {
     const novaEmpresa = {
       ds_nome: req.body.ds_nome,
