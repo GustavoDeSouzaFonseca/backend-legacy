@@ -1,0 +1,15 @@
+{
+  "name": "backend-legacy",
+  "version": "1.0.0",
+  "description": "Servidor Node.js que forneça uma API RESTful para gerenciar empresas (CRUD). Use o mysql como armazenamento de dados dos clientes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
