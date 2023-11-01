@@ -89,6 +89,21 @@ class ClienteController {
 
     } catch (err) {
       next(err);
+    }  
+  }
+
+  static async deletarEmpresa(req, res, next) {
+    const { id } = req.params;
+    const empresaEncontrada = await database.T_LGC_CLIENTE.findOne({ where: { id: Number(id) } });
+    try {
+      if (empresaEncontrada) {
+        await database.T_LGC_CLIENTE.destroy({ where: { id: Number(id) } });
+        res.status(200).send({ message: `Usuário de ID ${id} excluído.` });
+      } else {
+        next(new ErroBase(`ID ${id} de empresa não encontrada para excluir.`, 404));
+      }
+    } catch (err) {
+      next(err);
     }
   }
 }
