@@ -18,7 +18,7 @@ class ClienteController {
   }
 
   static async listarPorCnpj(req, res, next) {
-    const cnpjDaEmpresa = req.nr_cnpj;
+    const cnpjDaEmpresa = req.body.nr_cnpj;
     const empresaEncontrada = await database.T_LGC_CLIENTE.findOne({ where : {nr_cnpj: cnpjDaEmpresa}});
 
     try {
@@ -27,7 +27,7 @@ class ClienteController {
       };
 
       next(new ErroBase("Empresa não encontrada.", 404));
-      
+
     } catch (err) {
       next(err);
     }
@@ -61,6 +61,35 @@ class ClienteController {
       next(err);
     }
 
+  }
+
+  static async atualizarEmpresa(req, res, next) {
+    const { id } = req.params;
+    const novosDados = {
+      ds_nome: req.body.ds_nome,
+      ds_senha: req.body.ds_senha,
+      nm_empresa: req.body.nm_empresa,
+      nr_cnpj: req.body.nr_cnpj,
+      ds_endereco: req.body.ds_endereco,
+      nr_numero: req.body.nr_numero,
+      nr_telefone: req.body.nr_telefone,
+      ds_email: req.body.ds_email,
+      dt_updated: new Date()
+    };
+
+    try {
+      const empresaEncontrada = await database.T_LGC_CLIENTE.findOne({ where: {id : Number(id)}});
+      if(empresaEncontrada) {
+        await database.T_LGC_CLIENTE.update(novosDados, { where : { id : Number(id)}});
+        const empresaAtualizada = await database.T_LGC_CLIENTE.findOne({ where : { id : Number(id)}});
+        res.status(200).send(empresaAtualizada);
+      }
+
+      next(new ErroBase("Empresa não encontrada", 404));
+
+    } catch (err) {
+      next(err);
+    }
   }
 }
 
