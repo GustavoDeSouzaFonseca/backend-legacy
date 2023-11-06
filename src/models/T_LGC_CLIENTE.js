@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   T_LGC_CLIENTE.init({
-    ds_nome: DataTypes.STRING,
+    ds_nome: DataTypes.STRING, 
     ds_senha: DataTypes.STRING,
     nm_empresa: DataTypes.STRING,
     nr_cnpj: DataTypes.STRING,
