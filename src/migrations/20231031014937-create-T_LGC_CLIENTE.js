@@ -25,6 +25,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      nr_cep: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       ds_endereco: {
         type: Sequelize.STRING,
         allowNull: false

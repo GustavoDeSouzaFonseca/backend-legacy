@@ -4,7 +4,7 @@ const manipuladorDeErros = require("./middlewares/manipuladorDeErros.js");
 const cors = require('cors');
 
 const app = express();
-app.use(cors())
+app.use(cors());
 routes(app);
 app.use(manipuladorDeErros);
 

@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     ds_senha: DataTypes.STRING,
     nm_empresa: DataTypes.STRING,
     nr_cnpj: DataTypes.STRING,
+    nr_cep: DataTypes.STRING,
     ds_endereco: DataTypes.STRING,
     nr_numero: DataTypes.INTEGER,
     nr_telefone: DataTypes.STRING,

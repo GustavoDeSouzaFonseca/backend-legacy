@@ -7,7 +7,7 @@ router
     .get("/clientes", ClienteController.listarTodasEmpresasCadastradas)
     .get("/clientes/cnpj", ClienteController.listarPorCnpj)
     .post("/clientes", ClienteController.criarNovaEmpresa)
-    .put("/clientes", ClienteController.atualizarEmpresa)
-    .delete("/clientes", ClienteController.deletarEmpresa);
+    .put("/clientes/:id", ClienteController.atualizarEmpresa)
+    .delete("/clientes/:id", ClienteController.deletarEmpresa);
 
 module.exports = router;

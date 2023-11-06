@@ -27,7 +27,6 @@ class ClienteController {
       };
 
       next(new ErroBase("Empresa não encontrada.", 404));
-
     } catch (err) {
       next(err);
     }
@@ -39,6 +38,7 @@ class ClienteController {
       ds_senha: req.body.ds_senha,
       nm_empresa: req.body.nm_empresa,
       nr_cnpj: req.body.nr_cnpj,
+      nr_cep: req.body.nr_cep,
       ds_endereco: req.body.ds_endereco,
       nr_numero: req.body.nr_numero,
       nr_telefone: req.body.nr_telefone,
@@ -70,6 +70,7 @@ class ClienteController {
       ds_senha: req.body.ds_senha,
       nm_empresa: req.body.nm_empresa,
       nr_cnpj: req.body.nr_cnpj,
+      nr_cep: req.body.nr_cep,
       ds_endereco: req.body.ds_endereco,
       nr_numero: req.body.nr_numero,
       nr_telefone: req.body.nr_telefone,
